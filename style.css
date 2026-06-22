@@ -9,6 +9,14 @@
     --bg-light-section: #f8f9fa;
     --pill-bg: #ffffff;
     --pill-border: #e2e8f0;
+
+/* Ainin's report/about page colours */
+    --navy-900: #042C53;
+    --navy-800: #0C447C;
+    --navy-600: #185FA5;
+    --blue-400: #378ADD;
+    --blue-50:  #E6F1FB;
+    --page-bg:  #F1EFE8;
 }
 
 /* Dark Mode Overrides */
@@ -32,6 +40,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+/* report.html & about.html background */
+body.page-report,
+body.page-about {
+    background-color: var(--page-bg);
 }
 
 /* Utilities */
@@ -62,6 +76,17 @@ body {
 .custom-navbar .nav-link.active {
     color: var(--primary-color) !important;
     font-weight: 600;
+}
+
+/* NAVBAR — report/about pages (Ainin) */
+.navbar-brand i {
+    color: var(--blue-400);
+}
+ 
+.nav-link.active {
+    color: var(--navy-900) !important;
+    font-weight: 600;
+    border-bottom: 2px solid var(--blue-400);
 }
 
 .hero-section {
@@ -132,4 +157,80 @@ body.dark-mode .btn-outline-secondary:hover {
 
 body.dark-mode .text-muted {
     color: #a0aec0 !important;
+}
+
+/* REPORT PAGE — career match cards (Ainin) */
+.progress-bar.bg-navy { background-color: var(--navy-600) !important; }
+.progress-bar.bg-blue  { background-color: var(--blue-400) !important; }
+ 
+.career-card.rank-1 {
+    border: 2px solid var(--blue-400) !important;
+    background-color: #fff;
+}
+ 
+.rank-badge {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    background-color: var(--blue-50);
+    color: var(--navy-900);
+    flex-shrink: 0;
+}
+ 
+.rank-1 .rank-badge {
+    background-color: var(--navy-900);
+    color: #fff;
+}
+ 
+.readiness-circle {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: conic-gradient(var(--navy-600) calc(var(--pct) * 1%), var(--blue-50) 0);
+    display: flex; align-items: center; justify-content: center;
+}
+ 
+.readiness-circle .inner {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+ 
+/* ABOUT PAGE — info cards, members, rules (Ainin) */
+.info-card .icon-circle {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 12px;
+}
+ 
+.member-card .avatar-circle {
+    width: 60px; height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    display: block;
+}
+ 
+.rule-number {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    background-color: var(--blue-50);
+    color: var(--navy-900);
+}
+ 
+/* PRINT STYLES (Ainin) */
+@media print {
+    .no-print { display: none !important; }
+    body { background-color: #fff !important; }
+    .card { border: 1px solid #ccc !important; box-shadow: none !important; }
+    .card, .career-card { break-inside: avoid; }
 }
