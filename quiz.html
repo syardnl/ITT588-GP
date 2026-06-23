@@ -13,40 +13,32 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-      <span class="brand-icon">🧭</span><span class="brand-text">CareerCompass</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i>Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="explore.html"><i class="bi bi-compass me-1"></i>Explore Careers</a></li>
-        <li class="nav-item"><a class="nav-link active" href="quiz.html"><i class="bi bi-clipboard-check me-1"></i>Skill Quiz</a></li>
-        <li class="nav-item"><a class="nav-link" href="report.html"><i class="bi bi-file-earmark-text me-1"></i>My Report</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-people me-1"></i>About</a></li>
-        <li class="nav-item ms-lg-2">
-          <div class="dropdown">
-            <button class="btn btn-outline-accent btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
-              <i class="bi bi-palette me-1"></i>Theme
+<nav class="navbar navbar-expand-lg custom-navbar shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-rocket text-primary"></i> CareerPilot
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end theme-menu">
-              <li><h6 class="dropdown-header">Accessibility Themes</h6></li>
-              <li><button class="dropdown-item" onclick="setTheme('default')"><span class="theme-dot default-dot"></span>Default</button></li>
-              <li><button class="dropdown-item" onclick="setTheme('high-contrast')"><span class="theme-dot hc-dot"></span>High Contrast</button></li>
-              <li><button class="dropdown-item" onclick="setTheme('warm')"><span class="theme-dot warm-dot"></span>Warm Tones</button></li>
-              <li><button class="dropdown-item" onclick="setTheme('cool')"><span class="theme-dot cool-dot"></span>Cool Tones</button></li>
-              <li><button class="dropdown-item" onclick="setTheme('dark')"><span class="theme-dot dark-dot"></span>Dark Mode</button></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="explore.html">Explore Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Skill Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="report.html">My Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button id="theme-toggle" class="btn btn-outline-secondary rounded-circle" title="Toggle Light/Dark Mode">
+                            <i class="fas fa-moon" id="theme-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 
 <div class="container py-5" style="max-width:720px">
   <div class="text-center mb-5" data-animate="fade-up">
