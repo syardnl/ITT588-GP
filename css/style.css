@@ -1,37 +1,38 @@
-/* --- CSS --- */
 :root {
+    /* Site-wide colours */
     --bg-color: #ffffff;
     --text-color: #212529;
     --nav-bg: #ffffff;
-    --border-color: #dee2e6;
-    --primary-color: #FB2C36;
-    --primary-hover: #FFA2A2;
-    --bg-light-section: #f8f9fa;
+    --border-color: #D7C8ED;
+    --primary-color: #6E5B9A;
+    --primary-hover: #B29CE4;
+    --bg-light-section: #F5F0FC;
     --pill-bg: #ffffff;
-    --pill-border: #e2e8f0;
+    --pill-border: #D7C8ED;
 
-/* Ainin's report/about page colours */
-    --navy-900: #042C53;
-    --navy-800: #0C447C;
-    --navy-600: #185FA5;
-    --blue-400: #378ADD;
-    --blue-50:  #E6F1FB;
-    --page-bg:  #F1EFE8;
+    /* Ainin's report/about page */
+    --navy-900: #42326E;
+    --navy-800: #6E5B9A;
+    --navy-600: #6E5B9A;
+    --blue-400: #B29CE4;
+    --blue-50:  #E0D4FC;
+    --page-bg:  #F5F0FC;
 }
 
 /* Dark Mode Overrides */
 body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e2e8f0;
-    --nav-bg: #1a202c;
-    --border-color: #2d3748;
-    --primary-color: #FB2C36;
-    --bg-light-section: #1a202c;
-    --pill-bg: #2d3748;
-    --pill-border: #4a5568;
+    --bg-color: #1E1730;
+    --text-color: #E0D4FC;
+    --nav-bg: #2A1F45;
+    --border-color: #42326E;
+    --primary-color: #B29CE4;
+    --primary-hover: #D7C8ED;
+    --bg-light-section: #2A1F45;
+    --pill-bg: #2A1F45;
+    --pill-border: #6E5B9A;
 }
 
-/* --- Base Styles --- */
+/* Base Styles */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -42,7 +43,7 @@ body {
     min-height: 100vh;
 }
 
-/* report.html & about.html background */
+/* report.html n about.html background */
 body.page-report,
 body.page-about {
     background-color: var(--page-bg);
@@ -50,24 +51,24 @@ body.page-about {
 
 /* Utilities */
 .text-primary { color: var(--primary-color) !important; }
-.bg-primary-subtle { background-color: rgba(90, 103, 216, 0.1) !important; }
-.border-primary-subtle { border-color: rgba(90, 103, 216, 0.2) !important; }
-.btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
-.btn-primary:hover { background-color: var(--primary-hover); border-color: var(--primary-hover); }
+.bg-primary-subtle { background-color: rgba(110, 91, 154, 0.1) !important; }
+.border-primary-subtle { border-color: rgba(110, 91, 154, 0.2) !important; }
+.btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); color: #fff; }
+.btn-primary:hover { background-color: var(--primary-hover); border-color: var(--primary-hover); color: #fff; }
 .btn-outline-primary { color: var(--primary-color); border-color: var(--primary-color); }
 .btn-outline-primary:hover { background-color: var(--primary-color); color: #fff; }
 .custom-border { border-color: var(--border-color) !important; }
 .custom-bg-light { background-color: var(--bg-light-section); transition: background-color 0.3s ease; }
 .tracking-wide { letter-spacing: 0.05em; }
 
-/* --- Components --- */
+/* Navbar */
 .custom-navbar {
     background-color: var(--nav-bg) !important;
     border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.custom-navbar .navbar-brand, 
+.custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
     color: var(--text-color) !important;
 }
@@ -78,22 +79,23 @@ body.page-about {
     font-weight: 600;
 }
 
-/* NAVBAR — report/about pages (Ainin) */
+/* Navbar — report/about pages (Ainin) */
 .navbar-brand i {
     color: var(--blue-400);
 }
- 
+
 .nav-link.active {
     color: var(--navy-900) !important;
     font-weight: 600;
     border-bottom: 2px solid var(--blue-400);
 }
 
+/* Hero Section */
 .hero-section {
     padding: 100px 0 80px 0;
 }
 
-/* How It Works  */
+/* How It Works */
 .step-circle {
     width: 80px;
     height: 80px;
@@ -110,12 +112,12 @@ body.page-about {
 }
 
 .step-wrapper:hover .step-circle {
-    background-color: rgba(90, 103, 216, 0.1);
+    background-color: rgba(110, 91, 154, 0.1);
     border-color: var(--primary-color);
     transform: translateY(-5px);
 }
 
-/* Popular Careers - Pills */
+/* Popular Careers */
 .career-pill {
     display: inline-block;
     padding: 12px 24px;
@@ -131,7 +133,7 @@ body.page-about {
 
 .career-pill:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(110, 91, 154, 0.15);
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
@@ -141,63 +143,63 @@ body.page-about {
     background-color: transparent;
 }
 
-/* Dark Mode Button */
+/* Dark Mode extras */
 body.dark-mode .dark-icon-fix {
-    color: #e2e8f0 !important;
+    color: #E0D4FC !important;
 }
 
 body.dark-mode .btn-outline-secondary {
-    color: #e2e8f0;
-    border-color: #4a5568;
+    color: #E0D4FC;
+    border-color: #6E5B9A;
 }
 body.dark-mode .btn-outline-secondary:hover {
-    background-color: #e2e8f0;
-    color: #121212;
+    background-color: #E0D4FC;
+    color: #1E1730;
 }
 
 body.dark-mode .text-muted {
-    color: #a0aec0 !important;
+    color: #B29CE4 !important;
 }
 
-/* REPORT PAGE — career match cards (Ainin) */
-.progress-bar.bg-navy { background-color: var(--navy-600) !important; }
-.progress-bar.bg-blue  { background-color: var(--blue-400) !important; }
- 
+/* Report page (Ainin) */
+.progress-bar.bg-navy { background-color: #42326E !important; }
+.progress-bar.bg-blue { background-color: #B29CE4 !important; }
+
 .career-card.rank-1 {
-    border: 2px solid var(--blue-400) !important;
+    border: 2px solid #B29CE4 !important;
     background-color: #fff;
 }
- 
+
 .rank-badge {
     width: 32px; height: 32px;
     display: flex; align-items: center; justify-content: center;
     border-radius: 50%;
     font-weight: 700;
-    background-color: var(--blue-50);
-    color: var(--navy-900);
+    background-color: #E0D4FC;
+    color: #42326E;
     flex-shrink: 0;
 }
- 
+
 .rank-1 .rank-badge {
-    background-color: var(--navy-900);
+    background-color: #42326E;
     color: #fff;
 }
- 
+
 .readiness-circle {
     width: 130px; height: 130px;
     border-radius: 50%;
-    background: conic-gradient(var(--navy-600) calc(var(--pct) * 1%), var(--blue-50) 0);
+    background: conic-gradient(#6E5B9A calc(var(--pct) * 1%), #E0D4FC 0);
     display: flex; align-items: center; justify-content: center;
 }
- 
+
 .readiness-circle .inner {
     width: 100px; height: 100px;
     border-radius: 50%;
     background: #fff;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
- 
-/* ABOUT PAGE — info cards, members, rules (Ainin) */
+
+/* About page (Ainin) */
 .info-card .icon-circle {
     width: 56px; height: 56px;
     border-radius: 50%;
@@ -205,7 +207,7 @@ body.dark-mode .text-muted {
     font-size: 1.4rem;
     margin: 0 auto 12px;
 }
- 
+
 .member-card .avatar-circle {
     width: 60px; height: 60px;
     min-width: 60px;
@@ -215,7 +217,7 @@ body.dark-mode .text-muted {
     flex-shrink: 0;
     display: block;
 }
- 
+
 .rule-number {
     width: 32px; height: 32px;
     border-radius: 50%;
@@ -223,11 +225,11 @@ body.dark-mode .text-muted {
     font-weight: 700;
     font-size: 0.9rem;
     flex-shrink: 0;
-    background-color: var(--blue-50);
-    color: var(--navy-900);
+    background-color: #E0D4FC;
+    color: #42326E;
 }
- 
-/* PRINT STYLES (Ainin) */
+
+/* Print styles (Ainin) */
 @media print {
     .no-print { display: none !important; }
     body { background-color: #fff !important; }
