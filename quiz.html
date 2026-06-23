@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Quiz – CareerCompass</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="brand-icon">🧭</span><span class="brand-text">CareerCompass</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i>Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="explore.html"><i class="bi bi-compass me-1"></i>Explore Careers</a></li>
+        <li class="nav-item"><a class="nav-link active" href="quiz.html"><i class="bi bi-clipboard-check me-1"></i>Skill Quiz</a></li>
+        <li class="nav-item"><a class="nav-link" href="report.html"><i class="bi bi-file-earmark-text me-1"></i>My Report</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-people me-1"></i>About</a></li>
+        <li class="nav-item ms-lg-2">
+          <div class="dropdown">
+            <button class="btn btn-outline-accent btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-palette me-1"></i>Theme
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end theme-menu">
+              <li><h6 class="dropdown-header">Accessibility Themes</h6></li>
+              <li><button class="dropdown-item" onclick="setTheme('default')"><span class="theme-dot default-dot"></span>Default</button></li>
+              <li><button class="dropdown-item" onclick="setTheme('high-contrast')"><span class="theme-dot hc-dot"></span>High Contrast</button></li>
+              <li><button class="dropdown-item" onclick="setTheme('warm')"><span class="theme-dot warm-dot"></span>Warm Tones</button></li>
+              <li><button class="dropdown-item" onclick="setTheme('cool')"><span class="theme-dot cool-dot"></span>Cool Tones</button></li>
+              <li><button class="dropdown-item" onclick="setTheme('dark')"><span class="theme-dot dark-dot"></span>Dark Mode</button></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5" style="max-width:720px">
+  <div class="text-center mb-5" data-animate="fade-up">
+    <h6 class="section-eyebrow">Career Discovery</h6>
+    <h2 class="section-title">Skill Readiness Quiz</h2>
+    <p class="text-muted">Answer 3 quick sections to get your personalised career recommendations.</p>
+  </div>
+
+  <!-- Stepper -->
+  <div class="quiz-stepper d-flex align-items-center mb-5" id="stepper">
+    <div class="step-dot active" id="dot-1">1</div>
+    <div class="step-line" id="line-1"></div>
+    <div class="step-dot" id="dot-2">2</div>
+    <div class="step-line" id="line-2"></div>
+    <div class="step-dot" id="dot-3">3</div>
+  </div>
+
+  <!-- Step 1: Personal Info -->
+  <div id="step-1" class="quiz-step">
+    <div class="card border-0 shadow-sm" style="border-radius:var(--radius); background:var(--cc-surface)">
+      <div class="card-body p-4">
+        <h5 class="fw-bold mb-4"><i class="bi bi-person-circle text-primary me-2"></i>Step 1 — About You</h5>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Your Name</label>
+          <input type="text" class="form-control" id="userName" placeholder="e.g. Ahmad Zulkifli" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Current Level of Study</label>
+          <select class="form-select" id="studyLevel">
+            <option value="">-- Select --</option>
+            <option>SPM / Secondary School</option>
+            <option>Foundation / Diploma</option>
+            <option>Bachelor's Degree</option>
+            <option>Master's / PhD</option>
+            <option>Working Professional</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Field of Study / Major</label>
+          <input type="text" class="form-control" id="fieldStudy" placeholder="e.g. Computer Science, Business, etc." />
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-primary-custom px-5" onclick="goStep(2)">
+            Next <i class="bi bi-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Interests -->
+  <div id="step-2" class="quiz-step d-none">
+    <div class="card border-0 shadow-sm" style="border-radius:var(--radius); background:var(--cc-surface)">
+      <div class="card-body p-4">
+        <h5 class="fw-bold mb-2"><i class="bi bi-heart text-danger me-2"></i>Step 2 — Your Interests</h5>
+        <p class="text-muted small mb-4">Select <strong>all that apply</strong> — the more you pick, the better your matches.</p>
+        <div class="row g-3" id="interestGrid">
+          <!-- Rendered by JS -->
+        </div>
+        <div id="interest-warning" class="alert alert-warning d-none mt-3">
+          <i class="bi bi-exclamation-triangle me-2"></i>Please select at least one interest.
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+          <button class="btn btn-outline-custom px-4" onclick="goStep(1)">
+            <i class="bi bi-arrow-left me-2"></i>Back
+          </button>
+          <button class="btn btn-primary-custom px-5" onclick="goStep(3)">
+            Next <i class="bi bi-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Skills -->
+  <div id="step-3" class="quiz-step d-none">
+    <div class="card border-0 shadow-sm" style="border-radius:var(--radius); background:var(--cc-surface)">
+      <div class="card-body p-4">
+        <h5 class="fw-bold mb-2"><i class="bi bi-lightning text-warning me-2"></i>Step 3 — Your Skills</h5>
+        <p class="text-muted small mb-4">Tick the skills you already have or feel confident in.</p>
+        <div class="row g-3" id="skillGrid">
+          <!-- Rendered by JS -->
+        </div>
+        <div id="skill-warning" class="alert alert-warning d-none mt-3">
+          <i class="bi bi-exclamation-triangle me-2"></i>Please select at least one skill.
+        </div>
+        <div class="mb-3 mt-4">
+          <label class="form-label fw-semibold">Anything else? (Optional)</label>
+          <textarea class="form-control" id="extraNotes" rows="2" placeholder="e.g. I enjoy working with people, I love music..."></textarea>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+          <button class="btn btn-outline-custom px-4" onclick="goStep(2)">
+            <i class="bi bi-arrow-left me-2"></i>Back
+          </button>
+          <button class="btn btn-primary-custom px-5" onclick="submitQuiz()">
+            <i class="bi bi-magic me-2"></i>Get My Results
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer py-4 mt-5">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+    <p class="mb-0 text-muted">© 2026 CareerCompass · ITT588 Group 5</p>
+    <div class="d-flex gap-3">
+      <a href="index.html" class="footer-link">Home</a>
+      <a href="explore.html" class="footer-link">Explore</a>
+      <a href="about.html" class="footer-link">About</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="data.js"></script>
+<script src="theme.js"></script>
+<script src="app.js"></script>
+<script>
+const interestOptions = [
+  { value: 'technology', label: '💻 Technology', icon: '' },
+  { value: 'math', label: '📐 Mathematics', icon: '' },
+  { value: 'science', label: '🔬 Science', icon: '' },
+  { value: 'art', label: '🎨 Art & Design', icon: '' },
+  { value: 'business', label: '📈 Business', icon: '' },
+  { value: 'writing', label: '✍️ Writing', icon: '' },
+  { value: 'helping-others', label: '🤝 Helping Others', icon: '' },
+  { value: 'data', label: '📊 Data & Numbers', icon: '' },
+  { value: 'design', label: '🖌️ Visual Design', icon: '' },
+  { value: 'logic', label: '🧩 Logic & Puzzles', icon: '' },
+  { value: 'social-media', label: '📱 Social Media', icon: '' },
+  { value: 'marketing', label: '📣 Marketing', icon: '' },
+  { value: 'healthcare', label: '🏥 Healthcare', icon: '' },
+  { value: 'finance', label: '💰 Finance', icon: '' },
+  { value: 'teaching', label: '📚 Teaching', icon: '' },
+  { value: 'building', label: '🏗️ Building Things', icon: '' },
+  { value: 'research', label: '🔍 Research', icon: '' },
+  { value: 'innovation', label: '💡 Innovation', icon: '' },
+  { value: 'media', label: '🎬 Media', icon: '' },
+  { value: 'security', label: '🔒 Security', icon: '' },
+];
+
+const skillOptions = [
+  { value: 'programming', label: '💻 Programming' },
+  { value: 'problem-solving', label: '🧠 Problem Solving' },
+  { value: 'communication', label: '💬 Communication' },
+  { value: 'creativity', label: '🎨 Creativity' },
+  { value: 'math', label: '🔢 Mathematics' },
+  { value: 'analysis', label: '📊 Data Analysis' },
+  { value: 'writing', label: '✍️ Writing' },
+  { value: 'teamwork', label: '🤝 Teamwork' },
+  { value: 'leadership', label: '👑 Leadership' },
+  { value: 'design-tools', label: '🖌️ Design Tools' },
+  { value: 'excel', label: '📋 Excel / Spreadsheets' },
+  { value: 'sql', label: '🗄️ SQL / Databases' },
+  { value: 'networking', label: '🌐 Networking' },
+  { value: 'research', label: '🔍 Research' },
+  { value: 'attention-to-detail', label: '🔎 Attention to Detail' },
+  { value: 'statistics', label: '📈 Statistics' },
+  { value: 'seo', label: '🔗 SEO / Digital Marketing' },
+  { value: 'empathy', label: '❤️ Empathy' },
+  { value: 'organisation', label: '📁 Organisation' },
+  { value: 'critical-thinking', label: '🤔 Critical Thinking' },
+];
+
+// Render interest options
+const iGrid = document.getElementById('interestGrid');
+interestOptions.forEach(opt => {
+  iGrid.innerHTML += `
+    <div class="col-6 col-md-4">
+      <div class="option-card w-100 d-flex align-items-center gap-2" role="checkbox" aria-checked="false" tabindex="0" data-value="${opt.value}">
+        <input type="checkbox" value="${opt.value}" hidden>
+        <span>${opt.label}</span>
+      </div>
+    </div>`;
+});
+
+// Render skill options
+const sGrid = document.getElementById('skillGrid');
+skillOptions.forEach(opt => {
+  sGrid.innerHTML += `
+    <div class="col-6 col-md-4">
+      <div class="option-card w-100 d-flex align-items-center gap-2" role="checkbox" aria-checked="false" tabindex="0" data-value="${opt.value}">
+        <input type="checkbox" value="${opt.value}" hidden>
+        <span>${opt.label}</span>
+      </div>
+    </div>`;
+});
+
+function toggleOption(el) {
+  const isSelected = el.classList.toggle('selected');
+  el.setAttribute('aria-checked', isSelected);
+  const cb = el.querySelector('input[type="checkbox"]');
+  if (cb) cb.checked = isSelected;
+}
+
+// Attach click & keyboard listeners after render
+document.querySelectorAll('.option-card').forEach(card => {
+  card.addEventListener('click', () => toggleOption(card));
+  card.addEventListener('keydown', e => {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggleOption(card); }
+  });
+});
+
+function goStep(n) {
+  // Validate step 2
+  if (n === 3) {
+    const selected = [...document.querySelectorAll('#interestGrid input:checked')];
+    if (selected.length === 0) {
+      document.getElementById('interest-warning').classList.remove('d-none');
+      return;
+    }
+    document.getElementById('interest-warning').classList.add('d-none');
+  }
+
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.add('d-none'));
+  document.getElementById(`step-${n}`).classList.remove('d-none');
+
+  // Update stepper
+  [1, 2, 3].forEach(i => {
+    const dot = document.getElementById(`dot-${i}`);
+    dot.classList.remove('active', 'done');
+    if (i < n) dot.classList.add('done'), dot.innerHTML = '<i class="bi bi-check"></i>';
+    else if (i === n) dot.classList.add('active'), dot.textContent = i;
+    else dot.textContent = i;
+  });
+  [1, 2].forEach(i => {
+    const line = document.getElementById(`line-${i}`);
+    line.classList.toggle('done', i < n);
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function submitQuiz() {
+  const skills = [...document.querySelectorAll('#skillGrid input:checked')].map(c => c.value);
+  if (skills.length === 0) {
+    document.getElementById('skill-warning').classList.remove('d-none');
+    return;
+  }
+  document.getElementById('skill-warning').classList.add('d-none');
+
+  const interests = [...document.querySelectorAll('#interestGrid input:checked')].map(c => c.value);
+  const profile = {
+    name: document.getElementById('userName').value || 'Student',
+    studyLevel: document.getElementById('studyLevel').value,
+    fieldStudy: document.getElementById('fieldStudy').value,
+    interests,
+    skills,
+    notes: document.getElementById('extraNotes').value,
+    date: new Date().toLocaleDateString('en-MY', { day: 'numeric', month: 'long', year: 'numeric' })
+  };
+
+  saveProfile(profile);
+  window.location.href = 'report.html';
+}
+
+initAnimations();
+</script>
+</body>
+</html>
