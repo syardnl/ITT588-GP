@@ -1,0 +1,236 @@
+/* --- CSS --- */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --nav-bg: #ffffff;
+    --border-color: #dee2e6;
+    --primary-color: #FB2C36;
+    --primary-hover: #FFA2A2;
+    --bg-light-section: #f8f9fa;
+    --pill-bg: #ffffff;
+    --pill-border: #e2e8f0;
+
+/* Ainin's report/about page colours */
+    --navy-900: #042C53;
+    --navy-800: #0C447C;
+    --navy-600: #185FA5;
+    --blue-400: #378ADD;
+    --blue-50:  #E6F1FB;
+    --page-bg:  #F1EFE8;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e2e8f0;
+    --nav-bg: #1a202c;
+    --border-color: #2d3748;
+    --primary-color: #FB2C36;
+    --bg-light-section: #1a202c;
+    --pill-bg: #2d3748;
+    --pill-border: #4a5568;
+}
+
+/* --- Base Styles --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* report.html & about.html background */
+body.page-report,
+body.page-about {
+    background-color: var(--page-bg);
+}
+
+/* Utilities */
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary-subtle { background-color: rgba(90, 103, 216, 0.1) !important; }
+.border-primary-subtle { border-color: rgba(90, 103, 216, 0.2) !important; }
+.btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
+.btn-primary:hover { background-color: var(--primary-hover); border-color: var(--primary-hover); }
+.btn-outline-primary { color: var(--primary-color); border-color: var(--primary-color); }
+.btn-outline-primary:hover { background-color: var(--primary-color); color: #fff; }
+.custom-border { border-color: var(--border-color) !important; }
+.custom-bg-light { background-color: var(--bg-light-section); transition: background-color 0.3s ease; }
+.tracking-wide { letter-spacing: 0.05em; }
+
+/* --- Components --- */
+.custom-navbar {
+    background-color: var(--nav-bg) !important;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-navbar .navbar-brand, 
+.custom-navbar .nav-link {
+    color: var(--text-color) !important;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* NAVBAR — report/about pages (Ainin) */
+.navbar-brand i {
+    color: var(--blue-400);
+}
+ 
+.nav-link.active {
+    color: var(--navy-900) !important;
+    font-weight: 600;
+    border-bottom: 2px solid var(--blue-400);
+}
+
+.hero-section {
+    padding: 100px 0 80px 0;
+}
+
+/* How It Works  */
+.step-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--bg-light-section);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.step-wrapper:hover .step-circle {
+    background-color: rgba(90, 103, 216, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+/* Popular Careers - Pills */
+.career-pill {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--pill-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 50px;
+    border: 1px solid var(--pill-border);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.career-pill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.career-pill.border-dashed {
+    border-style: dashed;
+    background-color: transparent;
+}
+
+/* Dark Mode Button */
+body.dark-mode .dark-icon-fix {
+    color: #e2e8f0 !important;
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: #e2e8f0;
+    border-color: #4a5568;
+}
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #e2e8f0;
+    color: #121212;
+}
+
+body.dark-mode .text-muted {
+    color: #a0aec0 !important;
+}
+
+/* REPORT PAGE — career match cards (Ainin) */
+.progress-bar.bg-navy { background-color: var(--navy-600) !important; }
+.progress-bar.bg-blue  { background-color: var(--blue-400) !important; }
+ 
+.career-card.rank-1 {
+    border: 2px solid var(--blue-400) !important;
+    background-color: #fff;
+}
+ 
+.rank-badge {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    background-color: var(--blue-50);
+    color: var(--navy-900);
+    flex-shrink: 0;
+}
+ 
+.rank-1 .rank-badge {
+    background-color: var(--navy-900);
+    color: #fff;
+}
+ 
+.readiness-circle {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: conic-gradient(var(--navy-600) calc(var(--pct) * 1%), var(--blue-50) 0);
+    display: flex; align-items: center; justify-content: center;
+}
+ 
+.readiness-circle .inner {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+ 
+/* ABOUT PAGE — info cards, members, rules (Ainin) */
+.info-card .icon-circle {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 12px;
+}
+ 
+.member-card .avatar-circle {
+    width: 60px; height: 60px;
+    min-width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    display: block;
+}
+ 
+.rule-number {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    background-color: var(--blue-50);
+    color: var(--navy-900);
+}
+ 
+/* PRINT STYLES (Ainin) */
+@media print {
+    .no-print { display: none !important; }
+    body { background-color: #fff !important; }
+    .card { border: 1px solid #ccc !important; box-shadow: none !important; }
+    .card, .career-card { break-inside: avoid; }
+}
