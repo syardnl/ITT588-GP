@@ -68,11 +68,6 @@ function loadReportData() {
   return mockData;
 }
 
-
-// ----------------------------------------------------------
-// formatDate(dateStr)
-// Converts "2026-06-25" → "25 June 2026"
-// ----------------------------------------------------------
 function formatDate(dateStr) {
   var d = new Date(dateStr);
   return d.toLocaleDateString('en-MY', { year: 'numeric', month: 'long', day: 'numeric' });
