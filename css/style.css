@@ -236,3 +236,121 @@ body.dark-mode .text-muted {
     .card { border: 1px solid #ccc !important; box-shadow: none !important; }
     .card, .career-card { break-inside: avoid; }
 }
+
+/* Quiz Styles */
+ .option-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      user-select: none;
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: border-color 0.18s, background 0.18s, transform 0.15s;
+      width: 100%;
+    }
+
+    .option-card:hover {
+      border-color: var(--primary-color);
+      background: var(--bg-light-section);
+      transform: translateY(-2px);
+    }
+
+    /* Selected state — filled purple */
+    .option-card.selected {
+      border-color: var(--primary-color);
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    /* Maxed out — grey out unselected cards */
+    .option-card.maxed {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Dark mode */
+    body.dark-mode .option-card {
+      background: var(--nav-bg);
+      color: var(--text-color);
+      border-color: var(--border-color);
+    }
+    body.dark-mode .option-card:hover {
+      background: var(--bg-light-section);
+      border-color: var(--primary-color);
+    }
+    body.dark-mode .option-card.selected {
+      background: var(--primary-color);
+      color: #fff;
+      border-color: var(--primary-color);
+    }
+
+    /* Counter badge */
+    .selection-counter {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    .selection-counter.at-max {
+      color: #dc3545;
+    }
+
+    /* Stepper */
+    .quiz-stepper { width: 100%; }
+    .step-dot {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-light-section);
+      border: 2px solid var(--border-color);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem;
+      color: var(--text-color);
+      flex-shrink: 0;
+      transition: all 0.25s;
+    }
+    .step-dot.active {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: #fff;
+    }
+    .step-dot.done {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: #fff;
+    }
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--border-color);
+      transition: background 0.25s;
+    }
+    .step-line.done { background: var(--primary-color); }
+
+    /* Btn overrides for quiz */
+    .btn-primary-custom {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-primary-custom:hover { background: var(--navy-900); color: #fff; }
+    .btn-outline-custom {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-outline-custom:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
