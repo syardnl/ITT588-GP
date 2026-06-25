@@ -13,11 +13,8 @@ const modalTitle = document.getElementById("modalTitle");
 const modalBody = document.getElementById("modalBody");
 
 function loadClusters() {
-
     let clusters = [];
-
     allCareers.forEach(function (career) {
-
         if (!clusters.includes(career.cluster)) {
             clusters.push(career.cluster);
         }
@@ -37,7 +34,6 @@ function loadClusters() {
 }
 
 
-// Filter Career
 function filterCareer() {
 
     const search = searchInput.value.toLowerCase().trim();
@@ -139,13 +135,7 @@ function displayCareer() {
 
                     </p>
 
-                    <p>
-
-                        <strong>Outlook</strong><br>
-
-                        ${career.outlook}
-
-                    </p>
+                   
 
                     <button
                         class="btn btn-primary w-100"
@@ -236,15 +226,7 @@ function showCareer(id) {
 
         </p>
 
-        <p>
-
-            <strong>Job Outlook:</strong>
-
-            ${career.outlook}
-
-        </p>
-
-        <p>
+       
 
             <strong>Study Path:</strong>
 
